@@ -1,0 +1,26 @@
+release 0.95 notes
+IMPORTANT
+
+Please consider this a beta version of xStreamer. It is more stable that an alpha version but is yet not feature complete. Do expect several changes in later versions. Also note that I plan to support all earlier xStreamer versions by supplying upgrade scripts on all new releases. This release can be considered stable(ish) with the current feature set but is lacking documentation (this will come later). If you wish to use this version then please expect to do some digging around under the hood to discover undocumented features (ie this is not for the php faint hearted).
+Requirements
+
+    * Xoops framework version 2.0.x and 2.2.x.
+    * PHP 4.x (untested in PHP 5.x)
+    * MySQL 4.x (untested in MySQL 5.x)
+    * Webserver (Apache etc)
+
+Installation.
+
+    * xStreamer requires the Xoops framework. Please consult the Xoops install guide for this.
+    * Unzip archive contents into Xoop's module directory. Giving the structure XOOPS/modules/xstreamer/(files go here).
+    * Go into Xoops Administration Menu ->System Admin -> Modules. Select and install xStreamer from the list of uninstalled modules. 
+
+Support.
+
+You must be a registered member to create a ticket.
+
+If you find a bug in xStreamer then please create a ticket on http://xprojects.co.uk
+
+If you have a feature request then please create a ticket on http://xprojects.co.uk
+
+If you have any questions or need help in installing or configuring xStreamer then please post to our xStreamer forums on http://xprojects.co.uk/newbb

@@ -1,0 +1,26 @@
+<form action="index.php" method="POST">
+	<table class="outer" cellspacing="1" width="100%">
+	  <tbody>
+	    <tr>
+	      <th colspan="2" >Add/Modify Categories</td>
+	    </tr>
+	    <tr>
+	    	<td class="head">Category Name</td>
+				<td class="even">
+				  <input name="name" id="name" value="<{$xstreamer_category.name}>">
+          <span class="error"><{$xstreamer_category_error.name}></span>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">Action</td>
+				<td class="even">
+					<input type="submit" name="submit" value="submit">
+          <{if $xstreamer_category.id gt 0}><input type="submit" name="confirm" value="delete"><{/if}>
+					<input type="reset" value="cancel">
+					<input type="hidden" name="id" value="<{$xstreamer_category.id}>">
+					<input type="hidden" name="class" value="category">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

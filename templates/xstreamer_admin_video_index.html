@@ -1,0 +1,30 @@
+<{$xstreamer_admin_navigation}>
+  <{if $xstreamer_videos|@count gt 0}>
+	<table width='100%' cellspacing='1' class='outer'>
+		<tr>
+			<th colspan='7'> Areas </th>
+		</tr>
+		<tr>
+		<td class='head'>Video</td>
+    <td class="head">Category</td>
+		<td class='head'>Date Added </td>
+    <td class="head">Views</td>
+    <td class="head">Votes</td>
+    <td class="head">Rating</td>
+    <td class="head">Visible</td>
+		</tr>
+		<{foreach from=$xstreamer_videos key=key item=video}>
+		<tr class="<{cycle values="odd,even"}>" valign='top' align='left'>
+  		<td><a href="index.php?class=video&id=<{$video.id}>"><{$video.name}></a></td>
+  		<td><{$video.categoryName}></td>
+			<td><{$video.date_added|date_format:"%Y-%m-%d"}></td>
+  		<td><{$video.views}></td>
+  		<td><{$video.votes}></td>
+  		<td><{$video.rating}></td>
+  		<td><{if $video.visible}>yes<{else}>no<{/if}></td>
+		</tr>
+	<{/foreach}>
+	</table>
+<{/if}>
+<br>
+<{include file="db:xstreamer_admin_video_add.html"}>

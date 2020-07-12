@@ -1,0 +1,73 @@
+<{if xstreamer_error|@count gt 0}>
+	<span class="error">
+		<ul>
+			<{foreach from=$xstreamer_error key=key item=error}>
+				<li><{$error}></li>
+			<{/foreach}>
+		</ul>
+	<{$xstreamer_error}>
+	</span>
+<{/if}>
+<table width='100%' cellspacing='1' class='outer'>
+	<tr>
+		<td style="width:70%">
+			<table>
+            <{if $xstreamer_video.id gt 0}>
+					<tr><th class="head"><div id="videoName"><a href="http://xprojects.co.uk">xStreamer Video Player</a> : Playing : <{$xstreamer_video.name}></div></th></tr>
+					<tr><td align="center">
+					  <p><br /></p>
+  						<div id="mainVideoBlock"><{include file="db:xstreamer_player_code.html"}></div> 
+  					  <div id="movie_player" align="center"></div>
+            <{else}>
+              <div align="center">No Video</div>
+            <{/if}>
+						<br />
+					</td></tr>
+          <tr><td><div id="movie_desc"><{$xstreamer_video.description}></div><br /></td></tr>
+          <{if $xstreamer_video.id gt 0}>
+          <{if $xstreamer_enable_rating eq 1}>
+  					<tr><th class="head">Rate This Video</th></tr>
+  					<tr><td><p><div id="mainRatingBlock"><{include file="db:xstreamer_voting_bar.html" xstreamer_vote_units=10}></div></p><p><br /></p></td></tr>
+          <{/if}>
+          <{if $xstreamer_enable_comments}> 
+  					<tr><th class="head"> Video Feedback & Comments</th>
+  					</tr>
+  					<tr><td><div id="videComments">
+                      <div style="text-align: center; padding: 3px; margin: 3px;">
+                        <{$commentsnav}>
+                        <{$lang_notice}>
+                      </div>
+                      
+                      <div style="margin: 3px; padding: 3px;">
+                      <!-- start comments loop -->
+                      <{if $comment_mode == "flat"}>
+                        <{include file="db:system_comments_flat.html"}>
+                      <{elseif $comment_mode == "thread"}>
+                        <{include file="db:system_comments_thread.html"}>
+                      <{elseif $comment_mode == "nest"}>
+                        <{include file="db:system_comments_nest.html"}>
+                      <{/if}>
+                      <!-- end comments loop -->
+                      </div>
+                    </div>
+            </td></tr>
+            <{/if}>
+          <{/if}>
+			</table>	
+		</td>
+		<td style="width:30%">
+		  <{if $xstreamer_videos|@count gt 0}>
+  		  <table>
+  			  <tr><th class="head">Other Videos in <{$xstreamer_video.categoryName}> Category</th></tr>
+  				<tr><td class="even"><div id="videoList">
+  				  <ul>
+  						<{foreach from=$xstreamer_videos key=key item=video}>
+                <li><a href="index.php?class=video&id=<{$video.id}>"><{$video.name}></a></li>
+  						<{/foreach}>
+  					</ul>
+  			  </div></td></tr>
+  			</table>
+      <{/if}>		
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,13 @@
+<div class="ratingblock">
+  <div id="unit_long" class="unit-rating">
+  	<ul id="unit_ul" class="unit-rating" style="width:300px;">
+  		<li class="current-rating" style="width:<{$xstreamer_video.rating*30}>px;">Currently <{$xstreamer_video.rating}>/<{$xstreamer_vote_units}></li>
+      <{if not $xstreamer_read_only}>
+        <{section name=forloop loop=11 start=1 max=10}>
+          <li><a href="javascript:void(0);" onclick="xajax_onVote(<{$xstreamer_video.id}>,<{$smarty.section.forloop.index}>);" title="<{$smarty.section.forloop.index}> out of <{$xstreamer_vote_units}>" class="r<{$smarty.section.forloop.index}>-unit rater"><{$smarty.section.loop.iteration}></a></li>
+        <{/section}>
+      <{/if}>  
+    </ul>
+    <p class="voted">Rating: <strong><{$xstreamer_video.rating|string_format:"%.1f"}></strong>/<{$xstreamer_vote_units}> (<{$xstreamer_video.votes}> votes cast)<{if $xstreamer_thank_you}><br /><span class="thanks">Thanks for voting!</span><{/if}></p>
+  </div>
+</div>  

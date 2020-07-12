@@ -1,0 +1,68 @@
+<form action="index.php" method="POST">
+	<table class="outer" cellspacing="1" width="100%">
+	  <tbody>
+	    <tr>
+	      <th colspan="2" >Add/Modify Videos</td>
+	    </tr>
+	    <tr>
+	    	<td class="head">Video Name</td>
+				<td class="even">
+				  <input name="name" id="name" value="<{$xstreamer_video.name}>">
+          <span class="error"><{$xstreamer_video_error.name}></span>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">Video Width</td>
+				<td class="even">
+				  <input name="width" id="width" value="<{$xstreamer_video.width}>">
+          <small>Leave blank to use global default width.</small>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">Video Height</td>
+				<td class="even">
+				  <input name="height" id="height" value="<{$xstreamer_video.height}>">
+          <small>Leave blank to use global default height.</small>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">Video Category</td>
+				<td class="even">
+				  <select name="category_id" id="category_id">
+						<{html_options options=$xstreamer_category_select selected=$xstreamer_video.category_id}>
+					</select>
+          <span class="error"><{$xstreamer_video_error.category_id}></span>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">File Path<br><small>Full path the the FLV video file.</small></td>
+				<td class="even">
+				  <input name="filepath" id="filepath" size="60" maxlength="255" value="<{$xstreamer_video.filepath}>">
+          <span class="error"><{$xstreamer_video_error.filepath}></span>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">Visible</td>
+				<td class="even">
+				  <{html_radios name="visible" id="visible" options=$xstreamer_video_visible_select selected=$xstreamer_video.visible separator=" "}>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">Video Description</td>
+				<td class="even">
+				  <textarea name="description" cols="80%" rows="6"><{$xstreamer_video.description}></textarea>
+        </td>
+			</tr>
+	    <tr>
+	    	<td class="head">Action</td>
+				<td class="even">
+					<input type="submit" name="submit" value="submit">
+          <{if $xstreamer_video.id gt 0}><input type="submit" name="confirm" value="delete"><{/if}>
+					<input type="reset" value="cancel">
+					<input type="hidden" name="id" value="<{$xstreamer_video.id}>">
+					<input type="hidden" name="class" value="video">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

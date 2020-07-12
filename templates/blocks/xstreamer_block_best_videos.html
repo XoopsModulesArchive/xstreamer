@@ -1,0 +1,5 @@
+<div class="top10list">
+  <{section name=i loop=$block}>
+    <li><a href="<{$xoops_url}>/modules/xstreamer/index.php?class=video&id=<{$block[i].id}>"><{$block[i].name}> (<{$block[i].rating|string_format:"%.1f"}>)</a></li>
+  <{/section}>
+</div>
